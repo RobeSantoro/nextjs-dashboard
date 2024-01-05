@@ -12,10 +12,12 @@ import {
 export default async function Page() {
   const revenue = await fetchRevenue();
   const latestInvoices = await fetchLatestInvoices();
-  const numberOfCustomers = await (await fetchCardData()).numberOfCustomers;
-  const totalPaidInvoices = await (await fetchCardData()).totalPaidInvoices;
-  const totalPendingInvoices = await (await fetchCardData()).totalPendingInvoices;
-  const numberOfInvoices = await (await fetchCardData()).numberOfInvoices;
+  const {
+    numberOfCustomers,
+    totalPaidInvoices,
+    totalPendingInvoices,
+    numberOfInvoices
+   } = await fetchCardData();
 
   return (
     <main>
